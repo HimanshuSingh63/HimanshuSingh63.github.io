@@ -9,7 +9,7 @@
 <body>
     <header>
         <h1>Welcome to My Website</h1>
-        <p>Created and hosted in 2025 Changed.</p>
+        <p>Created and hosted in 2025 Changed Again.</p>
     </header>
     <main>
         <section>
@@ -23,22 +23,31 @@
 
     <!-- ADD YOUR JS HERE: Right before the closing body tag -->
     <script type='text/javascript'>
-        function initEmbeddedMessaging() {
-            try {
-                embeddedservice_bootstrap.settings.language = 'en_US'; 
-                embeddedservice_bootstrap.init(
-                    '00DA8000004OY6J',
-                    'PD_MIAW_SFDC_Staging',
-                    'ckdomain-production--preprods.sandbox.my.site.com',
-                    {
-                        scrt2URL: 'https://ckdomain-production--preprods.sandbox.my.salesforce-scrt.com'
-                    }
-                );
-            } catch (err) {
-                console.error('Error loading Embedded Messaging: ', err);
-            }
-        };
-    </script>
-    <script type='text/javascript' src='ckdomain-production--preprods.sandbox.my.site.com/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+		function initEmbeddedMessaging() {
+			try {
+                console.log('Initializing Embedded Messaging…');
+				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+				
+				window.addEventListener("onEmbeddedMessagingReady", () => {
+					console.log("Received the onEmbeddedMessagingReady event…");
+					const siteCode = window.location.pathname.split('/')[1];
+					console.log('site code:', siteCode);
+        			embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"Site" : siteCode});
+				});
+
+				embeddedservice_bootstrap.init(
+					'00DA8000004OY6J',
+					'PD_MIAW_SFDC_Staging',
+					'https://ckdomain-production--preprods.sandbox.my.site.com/ESWPDMIAWSFDCStaging1762310143793',
+					{
+						scrt2URL: 'https://ckdomain-production--preprods.sandbox.my.salesforce-scrt.com'
+					}
+				);
+			} catch (err) {
+				console.error('Error loading Embedded Messaging: ', err);
+			}
+		};
+	</script>
+	<script type='text/javascript' src='https://ckdomain-production--preprods.sandbox.my.site.com/ESWPDMIAWSFDCStaging1762310143793/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
