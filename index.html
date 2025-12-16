@@ -9,7 +9,7 @@
 <body>
     <header>
         <h1>Welcome to My Website</h1>
-        <p>Created and hosted in 2025.</p>
+        <p>Created and hosted in 2025 Changed.</p>
     </header>
     <main>
         <section>
@@ -20,5 +20,25 @@
     <footer>
         <p>&copy; 2025 My Brand</p>
     </footer>
+
+    <!-- ADD YOUR JS HERE: Right before the closing body tag -->
+    <script type='text/javascript'>
+        function initEmbeddedMessaging() {
+            try {
+                embeddedservice_bootstrap.settings.language = 'en_US'; 
+                embeddedservice_bootstrap.init(
+                    '00DA8000004OY6J',
+                    'PD_MIAW_SFDC_Staging',
+                    'ckdomain-production--preprods.sandbox.my.site.com',
+                    {
+                        scrt2URL: 'https://ckdomain-production--preprods.sandbox.my.salesforce-scrt.com'
+                    }
+                );
+            } catch (err) {
+                console.error('Error loading Embedded Messaging: ', err);
+            }
+        };
+    </script>
+    <script type='text/javascript' src='ckdomain-production--preprods.sandbox.my.site.com/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
