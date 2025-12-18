@@ -28,12 +28,12 @@
                 console.log('Initializing Embedded Messaging…');
 				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 				
-				window.addEventListener("onEmbeddedMessagingReady", () => {
-					console.log("Received the onEmbeddedMessagingReady event…");
-					const siteCode = window.location.pathname.split('/')[1];
-					console.log('site code:', siteCode);
-        			embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"Site" : siteCode});
-				});
+				// window.addEventListener("onEmbeddedMessagingReady", () => {
+				// 	console.log("Received the onEmbeddedMessagingReady event…");
+				// 	const siteCode = window.location.pathname.split('/')[1];
+				// 	console.log('site code:', siteCode);
+    //     			embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"Site" : siteCode});
+				// });
 
 				embeddedservice_bootstrap.init(
 					'00DA8000004OY6J',
@@ -51,4 +51,5 @@
 	<script type='text/javascript' src='https://ckdomain-production--preprods.sandbox.my.site.com/ESWPDMIAWSFDCStaging1762310143793/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
+
 
