@@ -23,33 +23,27 @@
 
     <!-- ADD YOUR JS HERE: Right before the closing body tag -->
     <script type='text/javascript'>
-		function initEmbeddedMessaging() {
-			try {
-                console.log('Initializing Embedded Messaging…');
-				embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-				
-				// window.addEventListener("onEmbeddedMessagingReady", () => {
-				// 	console.log("Received the onEmbeddedMessagingReady event…");
-				// 	const siteCode = window.location.pathname.split('/')[1];
-				// 	console.log('site code:', siteCode);
-    //     			embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"Site" : siteCode});
-				// });
+	function initEmbeddedMessaging() {
+		try {
+			console.log('initializing........');
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-				embeddedservice_bootstrap.init(
-					'00DA8000004OY6J',
-					'PD_MIAW_SFDC_Staging',
-					'https://ckdomain-production--preprods.sandbox.my.site.com/ESWPDMIAWSFDCStaging1762310143793',
-					{
-						scrt2URL: 'https://ckdomain-production--preprods.sandbox.my.salesforce-scrt.com'
-					}
-				);
-			} catch (err) {
-				console.error('Error loading Embedded Messaging: ', err);
-			}
-		};
-	</script>
-	<script type='text/javascript' src='https://ckdomain-production--preprods.sandbox.my.site.com/ESWPDMIAWSFDCStaging1762310143793/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+			embeddedservice_bootstrap.init(
+				'00DA8000004OY6J',
+				'Test',
+				'https://ckdomain-production--preprods.sandbox.my.site.com/ESWTest1766038411045',
+				{
+					scrt2URL: 'https://ckdomain-production--preprods.sandbox.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
+</script>
+<script type='text/javascript' src='https://ckdomain-production--preprods.sandbox.my.site.com/ESWTest1766038411045/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
+
 
 
