@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-    <title>My 2025 Home Page</title>
+    <title>My 2026 Home Page</title>
     <link rel="stylesheet" href="Style.css">
 </head>
 <body>
     <header>
         <h1>Welcome to My Website</h1>
-        <p>Created and hosted in 2025 Changed Again.</p>
+        <p>Created and hosted in 2026</p>
     </header>
     <main>
         <section>
@@ -20,35 +20,44 @@
     <footer>
         <p>&copy; 2026 My Brand</p>
     </footer>
-
     <!-- ADD YOUR JS HERE: Right before the closing body tag -->
    	<script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
-			console.log('Script Loded but hiding button');
+			embeddedservice_bootstrap.settings.language = 'en_US';
+			console.log('Script Loaded hiding chat button in initialization');
 			embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
-			// 2. RUN AVAILABILITY CHECK: Wait for MIAW to be ready
-    		window.addEventListener("onEmbeddedMessagingReady", () => {
-        		const apexEndpoint = 'https://orgfarm-4e9623b06e-dev-ed.develop.my.salesforce-sites.com/services/apexrest/AgentAvailability';
-        
-        		fetch(apexEndpoint)
-            		.then(response => response.json())
-            		.then(isAvailable => {
-                		if (isAvailable === true) {
-                    		// 3. SHOW BUTTON: Only if agents are online
-                    		embeddedservice_bootstrap.utilAPI.showChatButton();
-                		} else {
-                   		 	console.log("No agents available. Chat remains hidden.");
-                    		// Optional: Call hide again to ensure it stays hidden
-                   		 	embeddedservice_bootstrap.utilAPI.hideChatButton();
-                		}
-           			 })
-            		.catch(error => {
-                		console.error('Error checking availability:', error);
-                		embeddedservice_bootstrap.utilAPI.hideChatButton(); // Fail safe
-            		});
-    			});
+			
+			const apexEndpoint = 'https://orgfarm-4e9623b06e-dev-ed.develop.my.salesforce-sites.com/services/apexrest/AgentAvailability';
+			
+			// Function to check agent availability
+			function checkAgentAvailability() {
+				console.log('Checking agent availability...');
+				fetch(apexEndpoint)
+					.then(response => response.json())
+					.then(isAvailable => {
+						if (isAvailable === true) {
+							console.log("Agents available. Showing Chat Button");
+							embeddedservice_bootstrap.utilAPI.showChatButton();
+						} else {
+							console.log("No agents available. Chat remains hidden.");
+							embeddedservice_bootstrap.utilAPI.hideChatButton();
+						}
+					})
+					.catch(error => {
+						console.error('Error checking availability:', error);
+						embeddedservice_bootstrap.utilAPI.hideChatButton(); // Fail safe
+					});
+			}
+			
+			// Wait for MIAW to be ready
+			window.addEventListener("onEmbeddedMessagingReady", () => {
+				// Initial check
+				checkAgentAvailability();
+				
+				// Set up interval to check every 5 minutes (300000 milliseconds)
+				setInterval(checkAgentAvailability, 300000);
+			});
 			
 			embeddedservice_bootstrap.init(
 				'00DgK00000GNAVJ',
@@ -62,13 +71,7 @@
 			console.error('Error loading Embedded Messaging: ', err);
 		}
 	};
-</script>
-<script type='text/javascript' src='https://orgfarm-4e9623b06e-dev-ed.develop.my.site.com/ESWGitHubSite1767674147029/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+	</script>
+	<script type='text/javascript' src='https://orgfarm-4e9623b06e-dev-ed.develop.my.site.com/ESWGitHubSite1767674147029/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
-
-
-
-
-
-
