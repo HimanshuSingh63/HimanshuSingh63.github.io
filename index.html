@@ -35,8 +35,10 @@
 				console.log('Checking agent availability...');
 				fetch(apexEndpoint)
 					.then(response => response.json())
-					.then(isAvailable => {
-						if (isAvailable === true) {
+					.then(data => {
+						 // Print the full response object
+            			console.log('API Response:', JSON.stringify(data));
+						if (data.isAvailable === true) {
 							console.log("Agents available. Showing Chat Button");
 							embeddedservice_bootstrap.utilAPI.showChatButton();
 						} else {
@@ -78,6 +80,7 @@
 	<script type='text/javascript' src='https://orgfarm-4e9623b06e-dev-ed.develop.my.site.com/ESWGitHubSite1767674147029/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
+
 
 
 
