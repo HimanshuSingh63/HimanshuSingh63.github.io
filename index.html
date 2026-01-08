@@ -54,6 +54,9 @@
 			window.addEventListener("onEmbeddedMessagingReady", () => {
 				// Initial check
 				checkAgentAvailability();
+
+				//set site name
+				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"Site" : "US"});
 				
 				// Set up interval to check every 1 minutes (60000 milliseconds)
 				setInterval(checkAgentAvailability, 60000);
@@ -75,4 +78,5 @@
 	<script type='text/javascript' src='https://orgfarm-4e9623b06e-dev-ed.develop.my.site.com/ESWGitHubSite1767674147029/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 </body>
 </html>
+
 
