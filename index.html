@@ -27,7 +27,7 @@
 			const SiteName = 'US';
 			embeddedservice_bootstrap.settings.language = 'ko';
 			console.log('Script Loaded hiding chat button in initialization');
-			embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
+			//embeddedservice_bootstrap.settings.hideChatButtonOnLoad = true;
 			
 			const apexEndpoint = 'https://orgfarm-4e9623b06e-dev-ed.develop.my.salesforce-sites.com/services/apexrest/CheckAgentAvailability?region=' + SiteName;
 			
@@ -56,7 +56,7 @@
 			// Wait for MIAW to be ready
 			window.addEventListener("onEmbeddedMessagingReady", () => {
 				// Initial check
-				checkAgentAvailability();
+				//checkAgentAvailability();
 
 				//set site name
 				embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({"Site" : SiteName});
